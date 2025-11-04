@@ -1,0 +1,308 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=2 cm,
+    bottom=2 cm,
+    left=2 cm,
+    right=2 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Bakr Sassi's CV},
+    pdfauthor={Bakr Sassi},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    -1pt
+}{
+    0.3 cm
+}{
+    0.2 cm
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\let\hrefWithoutArrow\href
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Bakr Sassi
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{La Manouba, Tunis}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{mailto:SassiBakr@outlook.com}{SassiBakr@outlook.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{tel:+216-28-202-093}{+216 28 202 093}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://github.com/SassiBakr}{github.com/SassiBakr}}%
+    \end{header}
+
+    \vspace{5 pt - 0.3 cm}
+
+    \section{Profil}
+
+        \begin{onecolentry}
+            Curieux de nature et stimulé par les défis technologiques, je m'oriente vers le Business Information Systems pour créer des solutions à impact concret. Je cherche un stage de fin d'études où je pourrai allier analyse, innovation et esprit d'équipe afin de transformer les besoins métiers en résultats tangibles.
+        \end{onecolentry}
+
+    \section{Parcours Académique}
+
+        \begin{twocolentry}{
+            2023 -- 2026
+        }
+            \textbf{Esprit School of Business}, Licence en Business Computing\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Spécialité Business Information Systems
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            2018 -- 2022
+        }
+            \textbf{Lycée Oued Ellil}, Baccalauréat Sciences Expérimentales\end{twocolentry}
+
+    \section{Projets}
+
+        \begin{twocolentry}{
+            2025
+        }
+            \textbf{Site Web de Prise de Rendez-vous -- Esprit School of Business}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Développé un système de gestion de rendez-vous entre étudiants et professionnels de santé
+                \item Implémenté la gestion des rôles (étudiants, médecins, administrateurs) avec authentification sécurisée
+                \item Créé un calendrier dynamique et système de notifications pour optimiser l'organisation des consultations
+                \item Conçu et développé l'architecture full-stack en équipe avec HTML, CSS, JavaScript, PHP et MySQL
+                \item \textbf{Projet primé 1\textsuperscript{er} au Bal des Projets -- 12\textsuperscript{ᵉ} édition, ESPRIT 2025}
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            2025
+        }
+            \textbf{AIxCYBER2025 -- Esprit School of Business}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Développé un prototype d'assistant IA pour la gestion de patrimoine multi-actifs
+                \item Intégré des solutions FinTech avec protocoles de cybersécurité avancés
+                \item Implémenté des fonctionnalités blockchain pour la traçabilité et la sécurité des transactions
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{Compétences}
+
+        \begin{onecolentry}
+            \textbf{Compétences Linguistiques:}
+        \end{onecolentry}
+        
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Arabe: Langue maternelle
+                \item Français: Courant
+                \item Anglais: Courant
+                \item Espagnol: Notions
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Compétences Techniques:}
+        \end{onecolentry}
+        
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Langages de Programmation:} Python, Java, C\#, JavaScript, PHP, HTML, CSS
+                \item \textbf{Frameworks \& Technologies:} Spring Boot, Angular, Android Studio
+                \item \textbf{Intelligence Artificielle:} Détection d'anomalies, Apprentissage supervisé (Certifié NVIDIA)
+                \item \textbf{Bases de Données:} MySQL, phpMyAdmin
+                \item \textbf{Outils:} Power BI (Data Visualization), Linux (Ubuntu, Kali)
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Compétences Transversales:}
+        \end{onecolentry}
+        
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Travail en équipe et collaboration
+                \item Gestion de projet et leadership
+                \item Communication et présentation
+                \item Résolution de problèmes et pensée analytique
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{Autres Compétences}
+
+        \begin{onecolentry}
+            \textbf{Technologies Supplémentaires:} Blockchain, FinTech, Cybersécurité, XAMPP, Git/GitHub
+        \end{onecolentry}
+
+    \section{Vie Associative}
+
+        \begin{twocolentry}{
+            2022 -- présent
+        }
+            \textbf{JCI}, Commissaire aux comptes\end{twocolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            2023 -- 2024
+        }
+            \textbf{Enactus ESB}, Membre\end{twocolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            2022 -- 2023
+        }
+            \textbf{Club Radio ISBST}, Responsable Marketing\end{twocolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            2022 -- 2023
+        }
+            \textbf{Leo Club Tunis Armada}, Membre\end{twocolentry}
+
+\end{document}
