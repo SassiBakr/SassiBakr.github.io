@@ -3532,7 +3532,82 @@ html {
         gap: 1.5rem;
     }
 
+    .certifications-showcase {
+        padding: 2rem 1.5rem;
+        overflow: hidden !important;
+    }
+
+    .certifications-gallery {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        row-gap: 1.5rem;
+        perspective: none;
+    }
+
     .cert-card {
+        aspect-ratio: auto;
+        min-height: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        cursor: default;
+    }
+
+    .cert-card-inner {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        transform: none !important;
+        transform-style: flat;
+    }
+
+    .cert-card-front {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: auto;
         padding: 1.5rem;
+        transform: none;
+        backface-visibility: visible;
+        -webkit-backface-visibility: visible;
+    }
+
+    .cert-card-back {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        transform: none;
+        backface-visibility: visible;
+        -webkit-backface-visibility: visible;
+        margin-top: 1rem;
+    }
+
+    .cert-title {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .cert-image-container {
+        max-height: none;
+        height: auto;
+    }
+
+    .cert-image {
+        max-height: none;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Disable 3D flip on mobile */
+    .cert-card:hover .cert-card-inner {
+        transform: none !important;
+    }
+
+    .certifications-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
     }
 }
