@@ -3623,6 +3623,32 @@ html {
         padding: 0.4rem 0.8rem;
     }
 
+    /* Achievements Summary - Mobile */
+    .achievements-summary {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .summary-stat {
+        border-right: none;
+        border-bottom: 2px solid var(--light-bg);
+        padding: 1.5rem 1rem;
+    }
+
+    .summary-stat:last-child {
+        border-bottom: none;
+    }
+
+    .stat-number-large {
+        font-size: 2rem;
+    }
+
+    .stat-label-large {
+        font-size: 0.9rem;
+    }
+
     .contact-card {
         padding: 1.5rem;
     }
