@@ -3544,6 +3544,10 @@ html {
         perspective: none;
     }
 
+    .certifications-subtitle {
+        display: none;
+    }
+
     .cert-card {
         aspect-ratio: auto;
         min-height: auto;
@@ -3551,6 +3555,7 @@ html {
         max-width: 100%;
         margin: 0;
         cursor: default;
+        height: auto;
     }
 
     .cert-card-inner {
@@ -3562,26 +3567,23 @@ html {
         transform-style: flat;
     }
 
+    /* Hide front (title), show only back (image) on mobile */
     .cert-card-front {
-        position: relative;
-        width: 100%;
-        height: auto;
-        min-height: auto;
-        padding: 1.5rem;
-        transform: none;
-        backface-visibility: visible;
-        -webkit-backface-visibility: visible;
+        display: none !important;
     }
 
     .cert-card-back {
-        position: relative;
+        position: relative !important;
         width: 100%;
         height: auto;
         min-height: auto;
-        transform: none;
-        backface-visibility: visible;
-        -webkit-backface-visibility: visible;
-        margin-top: 1rem;
+        transform: none !important;
+        backface-visibility: visible !important;
+        -webkit-backface-visibility: visible !important;
+        background: white;
+        padding: 1rem;
+        border-radius: 15px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .cert-title {
@@ -3592,6 +3594,7 @@ html {
     .cert-image-container {
         max-height: none;
         height: auto;
+        width: 100%;
     }
 
     .cert-image {
@@ -3599,15 +3602,20 @@ html {
         width: 100%;
         height: auto;
         object-fit: contain;
+        border-radius: 10px;
+    }
+
+    .cert-overlay {
+        display: none;
+    }
+
+    .cert-verify {
+        margin-top: 0.8rem;
+        font-size: 0.85rem;
     }
 
     /* Disable 3D flip on mobile */
     .cert-card:hover .cert-card-inner {
         transform: none !important;
-    }
-
-    .certifications-subtitle {
-        font-size: 0.85rem;
-        margin-bottom: 1.5rem;
     }
 }
