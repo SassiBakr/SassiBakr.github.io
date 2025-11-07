@@ -253,6 +253,56 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Project Gallery Carousel
+document.addEventListener('DOMContentLoaded', function() {
+    const galleries = document.querySelectorAll('.project-gallery');
+    
+    galleries.forEach(gallery => {
+        const mainImages = gallery.querySelectorAll('.gallery-main-img');
+        const thumbnails = gallery.querySelectorAll('.thumbnail');
+        const prevBtn = gallery.querySelector('.gallery-prev');
+        const nextBtn = gallery.querySelector('.gallery-next');
+        let currentIndex = 0;
+        
+        function showImage(index) {
+            // Hide all images
+            mainImages.forEach(img => img.classList.remove('active'));
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            
+            // Show selected image
+            mainImages[index].classList.add('active');
+            thumbnails[index].classList.add('active');
+            currentIndex = index;
+        }
+        
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+            const newIndex = currentIndex === 0 ? mainImages.length - 1 : currentIndex - 1;
+            showImage(newIndex);
+        });
+        
+        // Next button
+        nextBtn.addEventListener('click', () => {
+            const newIndex = currentIndex === mainImages.length - 1 ? 0 : currentIndex + 1;
+            showImage(newIndex);
+        });
+        
+        // Thumbnail clicks
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const index = parseInt(thumb.getAttribute('data-index'));
+                showImage(index);
+            });
+        });
+        
+        // Auto-play (optional - uncomment to enable)
+        // setInterval(() => {
+        //     const newIndex = currentIndex === mainImages.length - 1 ? 0 : currentIndex + 1;
+        //     showImage(newIndex);
+        // }, 5000);
+    });
+});
+
 // Log message for developer
 console.log('%c🚀 Portfolio Website Loaded Successfully!', 'color: #667eea; font-size: 16px; font-weight: bold;');
 console.log('%cDeveloped by Bakr Sassi', 'color: #764ba2; font-size: 14px;');
